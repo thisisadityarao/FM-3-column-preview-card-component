@@ -1,0 +1,124 @@
+/* VARIABLES */
+
+:root {
+  --dark-cyan: hsl(184, 100%, 22%);
+  --text-white: hsla(0, 0%, 100%, 0.75);
+  --light-gray: hsl(0, 0%, 95%);
+  --bright-orange: hsl(31, 77%, 52%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+}
+
+/* GENERAL STYLES */
+body {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 0.938rem; /* 15px */
+  line-height: 1.75;
+  padding: 1.5rem;
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-gray);
+}
+
+h2 {
+  font-family: "Big Shoulders Display";
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: var(--light-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.sedan,
+.suv,
+.luxury {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+:where(.sedan, .suv, .luxury) > * + * {
+  margin-block-start: 2rem;
+}
+
+:is(.sedan, .suv, .luxury) > img {
+  width: 4.2rem;
+}
+
+.sedan {
+  background-color: var(--bright-orange);
+}
+.suv {
+  background-color: var(--dark-cyan);
+}
+.luxury {
+  background-color: var(--very-dark-cyan);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  background-color: var(--light-gray);
+  border-radius: 2rem;
+  padding: 0.8em 2em;
+  min-width: 10ch;
+  min-height: 44px;
+  align-self: flex-start;
+  text-align: center;
+  line-height: 1.1;
+  transition: 220ms all ease-in-out;
+}
+
+button:hover,
+button:active {
+  background-color: transparent;
+  color: var(--text-white);
+
+  box-shadow: 0 0 0 2px var(--light-gray);
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.sedan__button {
+  color: var(--bright-orange);
+}
+
+.suv__button {
+  color: var(--dark-cyan);
+}
+
+.luxury__button {
+  color: var(--very-dark-cyan);
+}
+
+/* DESKTOP STYLES (>960px) */
+@media screen and (min-width: 60rem) {
+  .component {
+    flex-direction: row;
+    max-width: 60rem;
+  }
+
+  button {
+    margin-block-start: 3.5rem;
+  }
+
+  .sedan,
+  .suv,
+  .luxury {
+    padding-block: 3.35rem;
+  }
+}
